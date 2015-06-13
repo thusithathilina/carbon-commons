@@ -20,10 +20,10 @@ import org.apache.axis2.description.AxisOperation;
 import org.apache.axis2.description.AxisService;
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
+import org.apache.catalina.mapper.MappingData;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.http.mapper.MappingData;
 import org.wso2.carbon.core.multitenancy.utils.TenantAxisUtils;
 import org.wso2.carbon.tomcat.ext.utils.URLMappingHolder;
 import org.wso2.carbon.tomcat.ext.valves.CarbonTomcatValve;
@@ -39,6 +39,7 @@ import javax.xml.namespace.QName;
  * This is a CarbonTomcatValve which hadles the request for services when a tenant specifies service
  * specific id in the url.
  */
+@Deprecated
 public class UrlMapperValve extends CarbonTomcatValve {
     private static final Log log = LogFactory.getLog(UrlMapperValve.class);
 
@@ -116,7 +117,7 @@ public class UrlMapperValve extends CarbonTomcatValve {
         MappingData mappingData = request.getMappingData();
         org.apache.coyote.Request coyoteRequest = request.getCoyoteRequest();
 
-        MessageBytes requestPath = MessageBytes.newInstance();
+        /*MessageBytes requestPath = MessageBytes.newInstance();
         requestPath.setString(filterUri);
         mappingData.requestPath = requestPath;
         MessageBytes pathInfo = MessageBytes.newInstance();
@@ -135,7 +136,7 @@ public class UrlMapperValve extends CarbonTomcatValve {
                 request.getCoyoteRequest().decodedURI(), null,
                 mappingData);
         //connectorReq.setHost((Host)DataHolder.getInstance().getCarbonTomcatService().getTomcat().getEngine().findChild("testapp.wso2.com"));
-        request.setCoyoteRequest(coyoteRequest);
+        request.setCoyoteRequest(coyoteRequest);*/
     }
     
     public boolean equals(Object valve){

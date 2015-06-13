@@ -437,7 +437,7 @@ public class HostUtil {
 				try {
 					Context context = (Context) host.findChild("/");
 					if (host.getState().isAvailable()) {
-						if (context != null && context.getAvailable()) {
+						if (context != null && context.getState().isAvailable()) {
 							context.setRealm(null);
 							context.stop();
 							context.destroy();

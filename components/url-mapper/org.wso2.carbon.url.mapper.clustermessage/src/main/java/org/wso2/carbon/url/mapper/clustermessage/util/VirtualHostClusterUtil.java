@@ -132,7 +132,7 @@ public class VirtualHostClusterUtil {
         Context context = (Context) host.findChild("/");
         try {
             if (host.getState().isAvailable()) {
-                if (context != null && context.getAvailable()) {
+                if (context != null && context.getState().isAvailable()) {
                     context.setRealm(null);
                     context.stop();
                     context.destroy();

@@ -105,7 +105,7 @@ public class SVNFileChecksumResolverUtil {
                 	}
                 	bw.newLine();                	
                 }
-            } catch(Exception e){
+            } catch(IOException e){
                 log.error(e.getMessage());
             }
 

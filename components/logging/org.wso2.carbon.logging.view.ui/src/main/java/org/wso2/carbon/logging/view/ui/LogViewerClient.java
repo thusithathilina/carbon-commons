@@ -93,7 +93,9 @@ public class LogViewerClient {
             throw new LogViewerException(errorWhileDownloadingMsg, e);
         } finally {
             try {
-                fileToDownload.close();
+                if (fileToDownload != null) {
+                    fileToDownload.close();
+                }
             } catch (IOException e) {
                 log.error("Couldn't close the InputStream " + e.getMessage(), e);
             }
